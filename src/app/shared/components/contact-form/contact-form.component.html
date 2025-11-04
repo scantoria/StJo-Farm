@@ -1,0 +1,82 @@
+<form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form">
+  <h3>{{ title() }}</h3>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Name</mat-label>
+    <input matInput formControlName="name" placeholder="Your name" required>
+    @if (contactForm.get('name')?.hasError('required')) {
+      <mat-error>Name is required</mat-error>
+    }
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Email</mat-label>
+    <input matInput type="email" formControlName="email" placeholder="your.email@example.com" required>
+    @if (contactForm.get('email')?.hasError('required')) {
+      <mat-error>Email is required</mat-error>
+    }
+    @if (contactForm.get('email')?.hasError('email')) {
+      <mat-error>Please enter a valid email</mat-error>
+    }
+  </mat-form-field>
+
+  @if (showPhone()) {
+    <mat-form-field appearance="outline">
+      <mat-label>Phone (Optional)</mat-label>
+      <input matInput type="tel" formControlName="phone" placeholder="(555) 123-4567">
+    </mat-form-field>
+  }
+
+  @if (showSubject()) {
+    <mat-form-field appearance="outline">
+      <mat-label>Subject</mat-label>
+      <input matInput formControlName="subject" placeholder="Subject" required>
+      @if (contactForm.get('subject')?.hasError('required')) {
+        <mat-error>Subject is required</mat-error>
+      }
+    </mat-form-field>
+  }
+
+  <mat-form-field appearance="outline">
+    <mat-label>Message</mat-label>
+    <textarea matInput formControlName="message" rows="6" placeholder="Your message..." required></textarea>
+    @if (contactForm.get('message')?.hasError('required')) {
+      <mat-error>Message is required</mat-error>
+    }
+  </mat-form-field>
+
+  <!-- Image Upload -->
+  @if (allowImages()) {
+    <div class="file-upload-section">
+      <label class="file-upload-label">
+        <mat-icon>add_photo_alternate</mat-icon>
+        Attach Images (Optional)
+        <input type="file" multiple accept="image/*" (change)="onFileSelected($event)" style="display: none;">
+      </label>
+
+      @if (selectedFiles().length > 0) {
+        <div class="image-preview">
+          @for (file of selectedFiles(); track file.name; let i = $index) {
+            <div class="preview-item">
+              <img [src]="getImagePreview(file)" alt="Preview">
+              <button type="button" mat-icon-button class="remove-btn" (click)="removeImage(i)">
+                <mat-icon>close</mat-icon>
+              </button>
+            </div>
+          }
+        </div>
+      }
+    </div>
+  }
+
+  <div class="form-actions">
+    <button mat-raised-button class="primary" type="submit" [disabled]="contactForm.invalid || isSubmitting()">
+      @if (isSubmitting()) {
+        <mat-spinner diameter="20"></mat-spinner>
+      }
+      @if (!isSubmitting()) {
+        <span>{{ submitButtonText() }}</span>
+      }
+    </button>
+  </div>
+</form>

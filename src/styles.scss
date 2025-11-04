@@ -1,1 +1,234 @@
-/* You can add global styles to this file, and also import other style files */
+// Include theming for Angular Material with `mat.theme()`.
+@use '@angular/material' as mat;
+
+/* Color Palette */
+:root {
+  --color-orange: #FF8C00;
+  --color-orange-light: #FFA500;
+  --color-orange-dark: #CC7000;
+
+  --color-blue: #4A90E2;
+  --color-blue-light: #6FA8ED;
+  --color-blue-dark: #2E5F8A;
+
+  --color-white: #FFFFFF;
+  --color-off-white: #F8F9FA;
+
+  --color-badass: #BADA55;
+  --color-badass-light: #C8E678;
+  --color-badass-dark: #A0C040;
+
+  --color-text-primary: #333333;
+  --color-text-secondary: #666666;
+  --color-text-light: #999999;
+
+  --color-border: #E0E0E0;
+  --color-error: #DC3545;
+  --color-success: #28A745;
+}
+
+html {
+  @include mat.theme((
+    color: (
+      primary: mat.$azure-palette,
+      tertiary: mat.$blue-palette,
+    ),
+    typography: Roboto,
+    density: 0,
+  ));
+}
+
+/* Global Styles */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', Arial, sans-serif;
+  color: var(--color-text-primary);
+  background-color: var(--color-off-white);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  margin: 0 0 1rem 0;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.75rem; }
+h4 { font-size: 1.5rem; }
+h5 { font-size: 1.25rem; }
+h6 { font-size: 1rem; }
+
+p {
+  margin: 0 0 1rem 0;
+  line-height: 1.6;
+}
+
+/* Links */
+a {
+  color: var(--color-blue);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--color-blue-dark);
+}
+
+/* Buttons - Material Design Override */
+.mat-mdc-raised-button {
+  &.primary {
+    background-color: var(--color-orange) !important;
+    color: var(--color-white) !important;
+  }
+
+  &.accent {
+    background-color: var(--color-badass) !important;
+    color: var(--color-text-primary) !important;
+  }
+
+  &.secondary {
+    background-color: var(--color-blue) !important;
+    color: var(--color-white) !important;
+  }
+}
+
+/* Cards */
+.mat-mdc-card {
+  border-radius: 8px !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+  transition: box-shadow 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15) !important;
+  }
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.container-fluid {
+  width: 100%;
+  padding: 0 20px;
+}
+
+/* Section Spacing */
+section {
+  padding: 60px 0;
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(135deg, var(--color-blue) 0%, var(--color-blue-dark) 100%);
+  color: var(--color-white);
+  padding: 100px 0;
+  text-align: center;
+}
+
+/* Form Styles */
+.form-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: var(--color-white);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.mat-mdc-form-field {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+/* Image Upload Preview */
+.image-preview {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+
+  img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 2px solid var(--color-border);
+  }
+}
+
+/* Grid Layout */
+.grid {
+  display: grid;
+  gap: 20px;
+
+  &.grid-2 {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+
+  &.grid-3 {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+
+  &.grid-4 {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+}
+
+/* Loading Spinner */
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.75rem; }
+
+  section {
+    padding: 40px 0;
+  }
+
+  .hero {
+    padding: 60px 0;
+  }
+
+  .grid {
+    &.grid-2, &.grid-3, &.grid-4 {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+/* Utility Classes */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.mt-1 { margin-top: 0.5rem; }
+.mt-2 { margin-top: 1rem; }
+.mt-3 { margin-top: 1.5rem; }
+.mt-4 { margin-top: 2rem; }
+
+.mb-1 { margin-bottom: 0.5rem; }
+.mb-2 { margin-bottom: 1rem; }
+.mb-3 { margin-bottom: 1.5rem; }
+.mb-4 { margin-bottom: 2rem; }
+
+.p-1 { padding: 0.5rem; }
+.p-2 { padding: 1rem; }
+.p-3 { padding: 1.5rem; }
+.p-4 { padding: 2rem; }

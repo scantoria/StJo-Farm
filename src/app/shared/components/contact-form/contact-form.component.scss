@@ -1,0 +1,102 @@
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: var(--color-white);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+  h3 {
+    text-align: center;
+    color: var(--color-orange);
+    margin-bottom: 2rem;
+  }
+
+  mat-form-field {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  .file-upload-section {
+    margin: 1.5rem 0;
+
+    .file-upload-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 15px;
+      background-color: var(--color-off-white);
+      border: 2px dashed var(--color-border);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background-color: var(--color-badass-light);
+        border-color: var(--color-badass);
+      }
+
+      mat-icon {
+        color: var(--color-blue);
+      }
+    }
+  }
+
+  .image-preview {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+
+    .preview-item {
+      position: relative;
+
+      img {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        border-radius: 8px;
+        border: 2px solid var(--color-border);
+      }
+
+      .remove-btn {
+        position: absolute;
+        top: -8px;
+        right: -8px;
+        background-color: var(--color-error);
+        color: var(--color-white);
+        width: 24px;
+        height: 24px;
+
+        mat-icon {
+          font-size: 16px;
+          width: 16px;
+          height: 16px;
+        }
+      }
+    }
+  }
+
+  .form-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5rem;
+
+    button {
+      min-width: 200px;
+      padding: 12px 24px;
+      font-size: 1rem;
+
+      mat-spinner {
+        display: inline-block;
+        margin-right: 10px;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-form {
+    padding: 1.5rem;
+  }
+}

@@ -1,0 +1,36 @@
+<mat-toolbar class="header-toolbar">
+  <div class="container header-container">
+    <div class="logo-section" routerLink="/">
+      @if (logoExists()) {
+        <img src="assets/logo.png" alt="StJo Farm" class="logo" />
+      }
+      <span class="farm-name">StJo Farm</span>
+    </div>
+
+    <nav class="desktop-nav">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+      <a routerLink="/about" routerLinkActive="active">About</a>
+      <a routerLink="/animals" routerLinkActive="active">Our Animals</a>
+      <a routerLink="/for-sale" routerLinkActive="active">For Sale</a>
+      <a routerLink="/calf-adoption" routerLinkActive="active">Calf Adoption</a>
+      <a routerLink="/contact" routerLinkActive="active">Contact</a>
+    </nav>
+
+    <button mat-icon-button class="mobile-menu-button" (click)="toggleMobileMenu()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+</mat-toolbar>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" [class.open]="mobileMenuOpen()">
+  <nav class="mobile-nav">
+    <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="closeMobileMenu()">Home</a>
+    <a routerLink="/about" routerLinkActive="active" (click)="closeMobileMenu()">About</a>
+    <a routerLink="/animals" routerLinkActive="active" (click)="closeMobileMenu()">Our Animals</a>
+    <a routerLink="/for-sale" routerLinkActive="active" (click)="closeMobileMenu()">For Sale</a>
+    <a routerLink="/calf-adoption" routerLinkActive="active" (click)="closeMobileMenu()">Calf Adoption</a>
+    <a routerLink="/contact" routerLinkActive="active" (click)="closeMobileMenu()">Contact</a>
+  </nav>
+</div>
+<div class="mobile-overlay" [class.open]="mobileMenuOpen()" (click)="closeMobileMenu()"></div>

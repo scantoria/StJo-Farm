@@ -1,0 +1,70 @@
+<mat-card class="listing-card">
+  @if (listing().imageUrls && listing().imageUrls.length > 0) {
+    <div class="image-container">
+      <img
+        [src]="listing().imageUrls[0]"
+        [alt]="listing().title"
+        class="listing-image"
+        (error)="onImageError($event)">
+
+      @if (listing().imageUrls.length > 1) {
+        <div class="image-count">
+          <mat-icon>photo_library</mat-icon>
+          {{ listing().imageUrls.length }}
+        </div>
+      }
+
+      <div class="availability-badge" [class.available]="listing().available" [class.sold]="!listing().available">
+        {{ listing().available ? 'Available' : 'Sold' }}
+      </div>
+    </div>
+  }
+
+  @if (!listing().imageUrls || listing().imageUrls.length === 0) {
+    <div class="placeholder-image">
+      <mat-icon>photo</mat-icon>
+      <p>No Image</p>
+    </div>
+  }
+
+  <mat-card-content>
+    <h3 class="listing-title">{{ listing().title }}</h3>
+
+    <div class="listing-category">
+      <mat-chip>{{ getCategoryLabel(listing().category) }}</mat-chip>
+    </div>
+
+    <p class="listing-description">{{ truncateDescription(listing().description) }}</p>
+
+    <div class="listing-footer">
+      <div class="price-section">
+        <span class="price-label">Price:</span>
+        <span class="price-value">${{ listing().price | number:'1.2-2' }}</span>
+      </div>
+
+      @if (showActions()) {
+        <div class="action-buttons">
+          <button mat-icon-button color="primary" (click)="onView()" title="View Details">
+            <mat-icon>visibility</mat-icon>
+          </button>
+
+          @if (isAdmin()) {
+            <button mat-icon-button color="accent" (click)="onEdit()" title="Edit">
+              <mat-icon>edit</mat-icon>
+            </button>
+          }
+
+          @if (isAdmin()) {
+            <button mat-icon-button color="warn" (click)="onDelete()" title="Delete">
+              <mat-icon>delete</mat-icon>
+            </button>
+          }
+        </div>
+      }
+    </div>
+
+    <div class="listing-meta">
+      <small>Posted: {{ listing().createdAt | date:'mediumDate' }}</small>
+    </div>
+  </mat-card-content>
+</mat-card>

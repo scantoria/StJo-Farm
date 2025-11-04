@@ -1,0 +1,131 @@
+.header-toolbar {
+  background: linear-gradient(135deg, var(--color-orange) 0%, var(--color-orange-dark) 100%);
+  color: var(--color-white);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+
+  .logo {
+    height: 40px;
+    width: auto;
+  }
+
+  .farm-name {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-white);
+  }
+}
+
+.desktop-nav {
+  display: flex;
+  gap: 30px;
+
+  a {
+    color: var(--color-white);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    &.active {
+      background-color: var(--color-badass);
+      color: var(--color-text-primary);
+    }
+  }
+}
+
+.mobile-menu-button {
+  display: none;
+  color: var(--color-white);
+}
+
+/* Mobile Menu */
+.mobile-menu {
+  position: fixed;
+  top: 64px;
+  right: -300px;
+  width: 300px;
+  height: calc(100vh - 64px);
+  background: var(--color-white);
+  box-shadow: -2px 0 8px rgba(0, 0, 0, 0.1);
+  transition: right 0.3s ease;
+  z-index: 999;
+
+  &.open {
+    right: 0;
+  }
+
+  .mobile-nav {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+
+    a {
+      color: var(--color-text-primary);
+      text-decoration: none;
+      padding: 15px;
+      border-radius: 4px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background-color: var(--color-off-white);
+      }
+
+      &.active {
+        background-color: var(--color-orange);
+        color: var(--color-white);
+      }
+    }
+  }
+}
+
+.mobile-overlay {
+  position: fixed;
+  top: 64px;
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 64px);
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 998;
+
+  &.open {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .desktop-nav {
+    display: none;
+  }
+
+  .mobile-menu-button {
+    display: block;
+  }
+}
