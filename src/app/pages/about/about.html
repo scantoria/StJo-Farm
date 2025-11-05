@@ -1,1 +1,145 @@
-<p>about works!</p>
+<!-- Hero Banner -->
+<section class="page-hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1>About StJo Farm</h1>
+    <p>A Family Tradition of Quality and Care</p>
+  </div>
+</section>
+
+<!-- Our Story -->
+<section class="our-story">
+  <div class="container">
+    <div class="content-grid">
+      <div class="text-content">
+        <h2>Our Story</h2>
+        <p>
+          Welcome to StJo Farm, a family-owned and operated farm dedicated to raising
+          quality livestock with care, respect, and sustainable practices. Our journey
+          began with a passion for agriculture and a commitment to providing the best
+          for our animals and our community.
+        </p>
+        <p>
+          On our 5.8-acre property, we've created a home for dairy cows, thoroughbred
+          horses, goats, and chickens. Each animal receives individual attention and care,
+          ensuring their health, happiness, and well-being.
+        </p>
+        <p>
+          Our show dairy cows are the heart of our farm - they're permanent residents
+          who provide fresh, quality milk that we proudly share with our neighbors,
+          friends, and customers. We believe in building community through honest,
+          sustainable farming.
+        </p>
+      </div>
+      <div class="image-content">
+        @if (farmImageExists()) {
+          <img src="assets/about-farm.jpg" alt="Our Farm" />
+        }
+        @if (!farmImageExists()) {
+          <div class="image-placeholder">
+            <mat-icon>agriculture</mat-icon>
+            <p>Farm Image Coming Soon</p>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- What Makes Us Different -->
+<section class="what-makes-different">
+  <div class="container">
+    <h2 class="section-title">What Makes Us Different</h2>
+    <div class="values-grid">
+      @for (value of values; track value.title) {
+        <div class="value-card">
+          <div class="value-icon" [style.background-color]="value.color">
+            <mat-icon>{{ value.icon }}</mat-icon>
+          </div>
+          <h3>{{ value.title }}</h3>
+          <p>{{ value.description }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Our Animals -->
+<section class="our-animals-section">
+  <div class="container">
+    <h2 class="section-title">Our Animals</h2>
+    <div class="animals-grid">
+      @for (animal of animals; track animal.name) {
+        <mat-card class="animal-card">
+          <div class="animal-icon">
+            <mat-icon>{{ animal.icon }}</mat-icon>
+          </div>
+          <mat-card-content>
+            <h3>{{ animal.name }}</h3>
+            <p class="animal-type">{{ animal.type }}</p>
+            <p class="animal-description">{{ animal.description }}</p>
+            <div class="animal-features">
+              @for (feature of animal.features; track feature) {
+                <mat-chip>{{ feature }}</mat-chip>
+              }
+            </div>
+          </mat-card-content>
+        </mat-card>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Farm Stats -->
+<section class="farm-stats">
+  <div class="container">
+    <h2 class="section-title">By The Numbers</h2>
+    <div class="stats-grid">
+      @for (stat of stats; track stat.label) {
+        <div class="stat-card">
+          <div class="stat-number">{{ stat.number }}</div>
+          <div class="stat-label">{{ stat.label }}</div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Our Practices -->
+<section class="our-practices">
+  <div class="container">
+    <h2 class="section-title">Our Farming Practices</h2>
+    <div class="practices-content">
+      @for (practice of practices; track practice.title) {
+        <div class="practice-item">
+          <mat-icon class="practice-icon">{{ practice.icon }}</mat-icon>
+          <div class="practice-text">
+            <h4>{{ practice.title }}</h4>
+            <p>{{ practice.description }}</p>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Call to Action -->
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-content">
+      <h2>Visit Us or Get In Touch</h2>
+      <p>
+        Interested in learning more about our farm, our animals, or our products?
+        We'd love to hear from you!
+      </p>
+      <div class="cta-buttons">
+        <button mat-raised-button class="primary" routerLink="/for-sale">
+          Browse Available
+        </button>
+        <button mat-raised-button class="secondary" routerLink="/contact">
+          Contact Us
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,1 +1,297 @@
-<p>animals works!</p>
+<!-- Hero Banner -->
+<section class="page-hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1>Our Animals</h1>
+    <p>Meet the residents of StJo Farm</p>
+  </div>
+</section>
+
+<!-- Main Content -->
+<section class="animals-content">
+  <div class="container">
+    <div class="intro-text">
+      <p>
+        At StJo Farm, we take pride in raising a diverse group of animals with care and dedication.
+        Each species has its own unique needs, and we ensure they all receive the attention,
+        nutrition, and environment they need to thrive.
+      </p>
+    </div>
+
+    <!-- Dairy Cows Section -->
+    <div class="animal-section dairy-cows">
+      <div class="section-header">
+        <mat-icon class="section-icon">water_drop</mat-icon>
+        <h2>Dairy Cows</h2>
+        <span class="badge permanent">Permanent Residents</span>
+      </div>
+      <div class="section-content">
+        <div class="content-grid">
+          <div class="text-content">
+            <h3>The Heart of Our Farm</h3>
+            <p>
+              Our show dairy cows are the permanent residents and stars of StJo Farm.
+              These beautiful animals provide us with fresh, quality milk daily that we
+              share with our community.
+            </p>
+            <p>
+              Each cow receives individual attention and care. We know their personalities,
+              preferences, and needs. They're not just livestock - they're family.
+            </p>
+            <div class="features-list">
+              <div class="feature">
+                <mat-icon>check_circle</mat-icon>
+                <span>Show Quality Genetics</span>
+              </div>
+              <div class="feature">
+                <mat-icon>check_circle</mat-icon>
+                <span>Daily Fresh Milk Production</span>
+              </div>
+              <div class="feature">
+                <mat-icon>check_circle</mat-icon>
+                <span>Excellent Health & Care</span>
+              </div>
+              <div class="feature">
+                <mat-icon>check_circle</mat-icon>
+                <span>Well-Socialized & Gentle</span>
+              </div>
+            </div>
+          </div>
+          <div class="image-content">
+            @if (dairyCowsImageExists()) {
+              <img src="assets/dairy-cows.jpg" alt="Dairy Cows" />
+            }
+            @if (!dairyCowsImageExists()) {
+              <div class="image-placeholder">
+                <mat-icon>water_drop</mat-icon>
+                <p>Dairy Cow Photos Coming Soon</p>
+              </div>
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Calves Section -->
+    <div class="animal-section calves">
+      <div class="section-header">
+        <mat-icon class="section-icon">pets</mat-icon>
+        <h2>Calves (Heifers & Steers)</h2>
+        <span class="badge rotating">Rotating Stock</span>
+      </div>
+      <div class="section-content">
+        <div class="content-grid reverse">
+          <div class="image-content">
+            @if (calvesImageExists()) {
+              <img src="assets/calves.jpg" alt="Calves" />
+            }
+            @if (!calvesImageExists()) {
+              <div class="image-placeholder">
+                <mat-icon>pets</mat-icon>
+                <p>Calf Photos Coming Soon</p>
+              </div>
+            }
+          </div>
+          <div class="text-content">
+            <h3>Young Stock with Potential</h3>
+            <p>
+              Throughout the year, we receive calves that need homes. We raise them with
+              the same care and attention as our dairy cows, ensuring they grow into
+              healthy, well-adjusted animals.
+            </p>
+            <p>
+              Heifers are raised as potential dairy or breeding stock, while steers are
+              prepared for sale either privately or at the stockyard for butcher.
+            </p>
+            <div class="info-boxes">
+              <div class="info-box">
+                <h4>Heifers</h4>
+                <p>Young female cattle raised for breeding or dairy production</p>
+              </div>
+              <div class="info-box">
+                <h4>Steers</h4>
+                <p>Young male cattle raised for beef production</p>
+              </div>
+            </div>
+            <p class="availability-note">
+              <mat-icon>info</mat-icon>
+              We typically receive up to 4 calves per year. Availability varies - check our
+              <a routerLink="/for-sale">For Sale</a> page or <a routerLink="/contact">contact us</a>
+              for current stock.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Goats Section -->
+    <div class="animal-section goats">
+      <div class="section-header">
+        <mat-icon class="section-icon">agriculture</mat-icon>
+        <h2>Goats</h2>
+        <span class="badge for-sale">For Sale</span>
+      </div>
+      <div class="section-content">
+        <div class="content-grid">
+          <div class="text-content">
+            <h3>Versatile & Friendly</h3>
+            <p>
+              We raise quality goats including wethers (neutered males) and does (females).
+              Goats are intelligent, friendly animals that make great additions to farms
+              or homesteads.
+            </p>
+            <p>
+              Our goats are well-socialized and handled regularly. They're perfect for
+              brush clearing, companionship, or starting your own herd.
+            </p>
+            <div class="goat-types">
+              <div class="goat-type-card">
+                <h4>Wether Goats</h4>
+                <ul>
+                  <li>Neutered males</li>
+                  <li>Excellent for pets or brush clearing</li>
+                  <li>Calm and friendly temperament</li>
+                  <li>Easy to manage</li>
+                </ul>
+              </div>
+              <div class="goat-type-card">
+                <h4>Does</h4>
+                <ul>
+                  <li>Female goats</li>
+                  <li>Great for breeding programs</li>
+                  <li>Milk production potential</li>
+                  <li>Good mothers</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="image-content">
+            @if (goatsImageExists()) {
+              <img src="assets/goats.jpg" alt="Goats" />
+            }
+            @if (!goatsImageExists()) {
+              <div class="image-placeholder">
+                <mat-icon>agriculture</mat-icon>
+                <p>Goat Photos Coming Soon</p>
+              </div>
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Horses Section -->
+    <div class="animal-section horses">
+      <div class="section-header">
+        <mat-icon class="section-icon">directions_run</mat-icon>
+        <h2>Thoroughbred Horses</h2>
+        <span class="badge available">Available</span>
+      </div>
+      <div class="section-content">
+        <div class="content-grid reverse">
+          <div class="image-content">
+            @if (horsesImageExists()) {
+              <img src="assets/horses.jpg" alt="Horses" />
+            }
+            @if (!horsesImageExists()) {
+              <div class="image-placeholder">
+                <mat-icon>directions_run</mat-icon>
+                <p>Horse Photos Coming Soon</p>
+              </div>
+            }
+          </div>
+          <div class="text-content">
+            <h3>Grace & Elegance</h3>
+            <p>
+              Our thoroughbred horses represent the pinnacle of equine breeding.
+              Known for their speed, intelligence, and athletic ability, thoroughbreds
+              are versatile horses suitable for various disciplines.
+            </p>
+            <p>
+              Each horse receives professional care, regular exercise, and proper training.
+              We ensure they're healthy, sound, and ready for their new homes.
+            </p>
+            <div class="features-list">
+              <div class="feature">
+                <mat-icon>stars</mat-icon>
+                <span>Quality Bloodlines</span>
+              </div>
+              <div class="feature">
+                <mat-icon>favorite</mat-icon>
+                <span>Well-Trained & Handled</span>
+              </div>
+              <div class="feature">
+                <mat-icon>verified</mat-icon>
+                <span>Health Certified</span>
+              </div>
+              <div class="feature">
+                <mat-icon>sports</mat-icon>
+                <span>Athletic & Sound</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chickens Section -->
+    <div class="animal-section chickens">
+      <div class="section-header">
+        <mat-icon class="section-icon">egg</mat-icon>
+        <h2>Chickens</h2>
+        <span class="badge eggs">Fresh Eggs Daily</span>
+      </div>
+      <div class="section-content">
+        <div class="content-grid">
+          <div class="text-content">
+            <h3>Farm Fresh Eggs</h3>
+            <p>
+              Our free-range chickens roam the farm, living their best chicken lives.
+              Happy chickens produce better eggs - and our customers can taste the difference!
+            </p>
+            <p>
+              We sell fresh chicken eggs regularly. The eggs are collected daily and are
+              available for purchase. Contact us for availability and pricing.
+            </p>
+            <div class="egg-benefits">
+              <h4>Why Our Eggs Are Special:</h4>
+              <ul>
+                <li><mat-icon>check</mat-icon> Free-range chickens</li>
+                <li><mat-icon>check</mat-icon> Natural diet supplemented with quality feed</li>
+                <li><mat-icon>check</mat-icon> Collected fresh daily</li>
+                <li><mat-icon>check</mat-icon> Rich, flavorful yolks</li>
+                <li><mat-icon>check</mat-icon> Healthy, happy hens</li>
+              </ul>
+            </div>
+          </div>
+          <div class="image-content">
+            @if (chickensImageExists()) {
+              <img src="assets/chickens.jpg" alt="Chickens" />
+            }
+            @if (!chickensImageExists()) {
+              <div class="image-placeholder">
+                <mat-icon>egg</mat-icon>
+                <p>Chicken Photos Coming Soon</p>
+              </div>
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Call to Action -->
+    <div class="animals-cta">
+      <mat-icon>storefront</mat-icon>
+      <h2>Interested in Our Animals?</h2>
+      <p>Check out what's currently available or contact us with questions!</p>
+      <div class="cta-buttons">
+        <button mat-raised-button class="primary" routerLink="/for-sale">
+          View For Sale
+        </button>
+        <button mat-raised-button class="secondary" routerLink="/contact">
+          Contact Us
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

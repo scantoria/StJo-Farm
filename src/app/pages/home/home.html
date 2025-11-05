@@ -1,1 +1,134 @@
-<p>home works!</p>
+<!-- Hero Section -->
+<section class="hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1 class="hero-title">Welcome to StJo Farm</h1>
+    <p class="hero-subtitle">Quality livestock and farm products from our 5.8-acre family farm</p>
+    <div class="hero-buttons">
+      <button mat-raised-button class="primary" routerLink="/for-sale">
+        Browse For Sale
+      </button>
+      <button mat-raised-button class="secondary" routerLink="/about">
+        Learn More
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- About Preview -->
+<section class="about-preview">
+  <div class="container">
+    <div class="content-grid">
+      <div class="text-content">
+        <h2>Our Family Farm</h2>
+        <p>
+          Welcome to StJo Farm, where tradition meets quality. On our 5.8-acre family farm,
+          we raise dairy cows, thoroughbred horses, goats, and chickens with care and dedication.
+        </p>
+        <p>
+          Our show dairy cows are permanent residents, providing fresh milk that we share
+          with neighbors, friends, and customers. We believe in sustainable farming practices
+          and treating our animals with respect and compassion.
+        </p>
+        <button mat-raised-button class="accent" routerLink="/about">
+          Read Our Story
+        </button>
+      </div>
+      <div class="image-content">
+        @if (farmImageExists()) {
+          <img src="assets/farm-preview.jpg" alt="StJo Farm" />
+        }
+        @if (!farmImageExists()) {
+          <div class="image-placeholder">
+            <mat-icon>agriculture</mat-icon>
+            <p>Farm Image Coming Soon</p>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- What We Offer -->
+<section class="offerings">
+  <div class="container">
+    <h2 class="section-title">What We Offer</h2>
+    <div class="offerings-grid">
+      @for (offering of offerings; track offering.title) {
+        <div class="offering-card">
+          <mat-icon class="offering-icon">{{ offering.icon }}</mat-icon>
+          <h3>{{ offering.title }}</h3>
+          <p>{{ offering.description }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Featured Listings Preview -->
+<section class="featured-listings">
+  <div class="container">
+    <h2 class="section-title">Currently Available</h2>
+
+    @if (loading()) {
+      <div class="loading-container">
+        <mat-spinner></mat-spinner>
+      </div>
+    }
+
+    @if (!loading() && featuredListings().length > 0) {
+      <div class="listings-grid">
+        @for (listing of featuredListings(); track listing.id) {
+          <app-listing-card
+            [listing]="listing"
+            [showActions]="false"
+            (view)="viewListing($event)">
+          </app-listing-card>
+        }
+      </div>
+    }
+
+    @if (!loading() && featuredListings().length === 0) {
+      <div class="no-listings">
+        <mat-icon>inventory_2</mat-icon>
+        <p>No listings available at the moment. Check back soon!</p>
+      </div>
+    }
+
+    @if (featuredListings().length > 0) {
+      <div class="view-all-button">
+        <button mat-raised-button class="primary" routerLink="/for-sale">
+          View All Listings
+        </button>
+      </div>
+    }
+  </div>
+</section>
+
+<!-- Calf Adoption CTA -->
+<section class="calf-adoption-cta">
+  <div class="container">
+    <div class="cta-content">
+      <mat-icon class="cta-icon">pets</mat-icon>
+      <h2>Need to Rehome a Calf?</h2>
+      <p>
+        We understand that sometimes circumstances change. If you have a calf that
+        needs a new home, we may be able to help. Learn more about our calf adoption program.
+      </p>
+      <button mat-raised-button class="accent" routerLink="/calf-adoption">
+        Calf Adoption Program
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- Contact CTA -->
+<section class="contact-cta">
+  <div class="container">
+    <h2>Get In Touch</h2>
+    <p>Have questions about our animals or products? We'd love to hear from you!</p>
+    <button mat-raised-button class="secondary" routerLink="/contact">
+      Contact Us
+    </button>
+  </div>
+</section>

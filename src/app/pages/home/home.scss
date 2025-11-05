@@ -1,0 +1,324 @@
+/* Hero Section */
+.hero {
+  position: relative;
+  height: 600px;
+  background: linear-gradient(135deg, var(--color-blue) 0%, var(--color-blue-dark) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  // Add background image when available
+  background-image: url('/assets/hero-background.jpg');
+  background-size: cover;
+  background-position: center;
+
+  .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(46, 95, 138, 0.85);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: var(--color-white);
+    max-width: 800px;
+    padding: 0 20px;
+
+    .hero-title {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .hero-subtitle {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+
+      button {
+        padding: 12px 32px;
+        font-size: 1.1rem;
+        min-width: 180px;
+      }
+    }
+  }
+}
+
+/* About Preview */
+.about-preview {
+  padding: 80px 0;
+  background-color: var(--color-white);
+
+  .content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .text-content {
+    h2 {
+      color: var(--color-orange);
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin-bottom: 1rem;
+      color: var(--color-text-secondary);
+    }
+
+    button {
+      margin-top: 1.5rem;
+      padding: 12px 32px;
+    }
+  }
+
+  .image-content {
+    img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    }
+
+    .image-placeholder {
+      width: 100%;
+      height: 400px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--color-off-white);
+      border-radius: 12px;
+      color: var(--color-text-light);
+
+      mat-icon {
+        font-size: 80px;
+        width: 80px;
+        height: 80px;
+        margin-bottom: 15px;
+        color: var(--color-badass);
+      }
+    }
+  }
+}
+
+/* Offerings Section */
+.offerings {
+  padding: 80px 0;
+  background-color: var(--color-off-white);
+
+  .section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--color-blue);
+    margin-bottom: 3rem;
+  }
+
+  .offerings-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+  }
+
+  .offering-card {
+    background: var(--color-white);
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    }
+
+    .offering-icon {
+      font-size: 64px;
+      width: 64px;
+      height: 64px;
+      color: var(--color-badass);
+      margin-bottom: 1rem;
+    }
+
+    h3 {
+      color: var(--color-orange);
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+    }
+  }
+}
+
+/* Featured Listings */
+.featured-listings {
+  padding: 80px 0;
+  background-color: var(--color-white);
+
+  .section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--color-blue);
+    margin-bottom: 3rem;
+  }
+
+  .listings-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 30px;
+    margin-bottom: 3rem;
+  }
+
+  .no-listings {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--color-text-light);
+
+    mat-icon {
+      font-size: 80px;
+      width: 80px;
+      height: 80px;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.2rem;
+    }
+  }
+
+  .view-all-button {
+    text-align: center;
+    margin-top: 2rem;
+
+    button {
+      padding: 12px 32px;
+      font-size: 1.1rem;
+    }
+  }
+}
+
+/* Calf Adoption CTA */
+.calf-adoption-cta {
+  padding: 80px 0;
+  background: linear-gradient(135deg, var(--color-badass-dark) 0%, var(--color-badass) 100%);
+
+  .cta-content {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+
+    .cta-icon {
+      font-size: 80px;
+      width: 80px;
+      height: 80px;
+      color: var(--color-white);
+      margin-bottom: 1.5rem;
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      color: var(--color-text-primary);
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.2rem;
+      color: var(--color-text-secondary);
+      line-height: 1.8;
+      margin-bottom: 2rem;
+    }
+
+    button {
+      padding: 12px 32px;
+      font-size: 1.1rem;
+    }
+  }
+}
+
+/* Contact CTA */
+.contact-cta {
+  padding: 80px 0;
+  background-color: var(--color-blue-dark);
+  text-align: center;
+  color: var(--color-white);
+
+  h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+  }
+
+  button {
+    padding: 12px 32px;
+    font-size: 1.1rem;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero {
+    height: 500px;
+
+    .hero-content {
+      .hero-title {
+        font-size: 2.5rem;
+      }
+
+      .hero-subtitle {
+        font-size: 1.2rem;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+
+        button {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .about-preview .content-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .offerings-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .listings-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .section-title {
+    font-size: 2rem !important;
+  }
+}
