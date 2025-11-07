@@ -1,1 +1,223 @@
-<p>calf-adoption works!</p>
+<!-- Hero Banner -->
+<section class="page-hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <mat-icon class="hero-icon">pets</mat-icon>
+    <h1>Calf Adoption Program</h1>
+    <p>Helping calves find new homes</p>
+  </div>
+</section>
+
+<!-- Program Info -->
+<section class="program-info">
+  <div class="container">
+    <div class="info-content">
+      <h2>About Our Program</h2>
+      <p>
+        We understand that sometimes circumstances change and you may find yourself unable to 
+        keep a calf. Whether it's due to space limitations, time constraints, or other reasons, 
+        we're here to help.
+      </p>
+      <p>
+        At StJo Farm, we accept calf donations throughout the year. We provide proper care, 
+        nutrition, and a safe environment for these animals. Some calves become permanent 
+        residents, while others are raised and eventually rehomed or sold.
+      </p>
+      
+      <div class="info-grid">
+        <div class="info-box">
+          <mat-icon>favorite</mat-icon>
+          <h3>Quality Care</h3>
+          <p>Every calf receives proper nutrition, veterinary care, and individual attention.</p>
+        </div>
+        
+        <div class="info-box">
+          <mat-icon>home</mat-icon>
+          <h3>Safe Environment</h3>
+          <p>Our farm provides a clean, spacious, and secure home for all animals.</p>
+        </div>
+        
+        <div class="info-box">
+          <mat-icon>groups</mat-icon>
+          <h3>Socialization</h3>
+          <p>Calves are handled regularly and socialized with other animals.</p>
+        </div>
+        
+        <div class="info-box">
+          <mat-icon>verified</mat-icon>
+          <h3>No Judgment</h3>
+          <p>We understand life happens. We're here to help, not judge.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Process Section -->
+<section class="process-section">
+  <div class="container">
+    <h2>How It Works</h2>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-number">1</div>
+        <h3>Submit Request</h3>
+        <p>Fill out the form below with information about your calf and situation.</p>
+      </div>
+      
+      <div class="step-card">
+        <div class="step-number">2</div>
+        <h3>We Review</h3>
+        <p>We'll review your request and contact you within 24-48 hours.</p>
+      </div>
+      
+      <div class="step-card">
+        <div class="step-number">3</div>
+        <h3>Arrange Transfer</h3>
+        <p>If approved, we'll work with you to arrange pickup or delivery.</p>
+      </div>
+      
+      <div class="step-card">
+        <div class="step-number">4</div>
+        <h3>Calf's New Home</h3>
+        <p>Your calf will receive care and attention at StJo Farm.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Adoption Form -->
+<section class="adoption-form-section">
+  <div class="container">
+    <div class="form-wrapper">
+      <h2>Calf Adoption Request Form</h2>
+      <p class="form-intro">
+        Please provide as much information as possible about your calf and your situation. 
+        This helps us prepare for the calf's arrival and ensure we can provide appropriate care.
+      </p>
+      
+      @if (!showSuccess()) {
+        <form [formGroup]="adoptionForm" (ngSubmit)="onSubmit()" class="adoption-form">
+          
+          <h3>Your Information</h3>
+          
+          <mat-form-field appearance="outline">
+            <mat-label>Your Name</mat-label>
+            <input matInput formControlName="ownerName" placeholder="John Doe" required>
+            @if (adoptionForm.get('ownerName')?.hasError('required')) {
+              <mat-error>Name is required</mat-error>
+            }
+          </mat-form-field>
+          
+          <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput type="email" formControlName="ownerEmail" placeholder="your.email@example.com" required>
+            @if (adoptionForm.get('ownerEmail')?.hasError('required')) {
+              <mat-error>Email is required</mat-error>
+            }
+            @if (adoptionForm.get('ownerEmail')?.hasError('email')) {
+              <mat-error>Please enter a valid email</mat-error>
+            }
+          </mat-form-field>
+          
+          <mat-form-field appearance="outline">
+            <mat-label>Phone Number</mat-label>
+            <input matInput type="tel" formControlName="ownerPhone" placeholder="(555) 123-4567" required>
+            @if (adoptionForm.get('ownerPhone')?.hasError('required')) {
+              <mat-error>Phone number is required</mat-error>
+            }
+          </mat-form-field>
+          
+          <h3>Calf Information</h3>
+          
+          <mat-form-field appearance="outline">
+            <mat-label>Calf Age</mat-label>
+            <input matInput formControlName="calfAge" placeholder="e.g., 3 months old" required>
+            @if (adoptionForm.get('calfAge')?.hasError('required')) {
+              <mat-error>Calf age is required</mat-error>
+            }
+          </mat-form-field>
+          
+          <mat-form-field appearance="outline">
+            <mat-label>Breed</mat-label>
+            <input matInput formControlName="calfBreed" placeholder="e.g., Holstein, Jersey, Mixed" required>
+            @if (adoptionForm.get('calfBreed')?.hasError('required')) {
+              <mat-error>Breed is required</mat-error>
+            }
+          </mat-form-field>
+          
+          <mat-form-field appearance="outline">
+            <mat-label>Reason for Rehoming</mat-label>
+            <textarea matInput formControlName="reason" rows="4" 
+              placeholder="Please explain why you need to rehome your calf..." required></textarea>
+            @if (adoptionForm.get('reason')?.hasError('required')) {
+              <mat-error>Reason is required</mat-error>
+            }
+          </mat-form-field>
+          
+          <mat-form-field appearance="outline">
+            <mat-label>Additional Information (Optional)</mat-label>
+            <textarea matInput formControlName="additionalInfo" rows="4" 
+              placeholder="Any other information about the calf's health, temperament, diet, etc."></textarea>
+          </mat-form-field>
+          
+          <!-- Image Upload -->
+          <div class="file-upload-section">
+            <h3>Calf Photos (Optional but Helpful)</h3>
+            <label class="file-upload-label">
+              <mat-icon>add_photo_alternate</mat-icon>
+              Upload Photos of Your Calf
+              <input type="file" multiple accept="image/*" (change)="onFileSelected($event)" style="display: none;">
+            </label>
+            
+            @if (selectedFiles().length > 0) {
+              <div class="image-preview">
+                @for (file of selectedFiles(); track file.name; let i = $index) {
+                  <div class="preview-item">
+                    <img [src]="getImagePreview(file)" alt="Calf photo">
+                    <button type="button" mat-icon-button class="remove-btn" (click)="removeImage(i)">
+                      <mat-icon>close</mat-icon>
+                    </button>
+                  </div>
+                }
+              </div>
+            }
+          </div>
+          
+          <div class="form-actions">
+            <button mat-raised-button color="primary" type="submit" [disabled]="adoptionForm.invalid || isSubmitting()">
+              @if (isSubmitting()) {
+                <mat-spinner diameter="20"></mat-spinner>
+              }
+              @if (!isSubmitting()) {
+                <span>Submit Request</span>
+              }
+            </button>
+          </div>
+        </form>
+      }
+      
+      @if (showSuccess()) {
+        <div class="success-message">
+          <mat-icon>check_circle</mat-icon>
+          <h3>Request Submitted Successfully!</h3>
+          <p>Thank you for reaching out. We've received your calf adoption request and will review it shortly.</p>
+          <p>We'll contact you at <strong>{{ submittedEmail() }}</strong> within 24-48 hours.</p>
+          <button mat-raised-button color="primary" (click)="resetForm()">
+            Submit Another Request
+          </button>
+        </div>
+      }
+    </div>
+    
+    <!-- Contact Alternative -->
+    <div class="contact-alternative">
+      <mat-icon>email</mat-icon>
+      <h3>Prefer to Contact Us Directly?</h3>
+      <p>If you'd rather discuss your situation over email or have urgent questions, 
+        feel free to reach out directly.</p>
+      <button mat-raised-button color="accent" routerLink="/contact">
+        Go to Contact Page
+      </button>
+    </div>
+  </div>
+</section>

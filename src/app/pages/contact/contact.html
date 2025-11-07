@@ -1,1 +1,160 @@
-<p>contact works!</p>
+<!-- Hero Banner -->
+<section class="page-hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1>Contact Us</h1>
+    <p>We'd love to hear from you!</p>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section class="contact-section">
+  <div class="container">
+    
+    <div class="contact-intro">
+      <h2>Get In Touch</h2>
+      <p>
+        Have questions about our animals, products, or availability? Want to schedule a visit? 
+        Send us a message and we'll get back to you as soon as possible.
+      </p>
+    </div>
+    
+    <div class="contact-grid">
+      
+      <!-- Contact Form -->
+      <div class="form-section">
+        @if (showSuccess()) {
+          <div class="success-message">
+            <mat-icon>check_circle</mat-icon>
+            <h3>Message Sent Successfully!</h3>
+            <p>Thank you for contacting us. We'll get back to you soon.</p>
+          </div>
+        }
+        
+        <mat-card class="contact-form-card">
+          <mat-card-header>
+            <mat-card-title>Send Us a Message</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form">
+              
+              <mat-form-field appearance="outline">
+                <mat-label>Name</mat-label>
+                <input matInput formControlName="name" placeholder="Your Name" required>
+                @if (contactForm.get('name')?.hasError('required')) {
+                  <mat-error>Name is required</mat-error>
+                }
+              </mat-form-field>
+              
+              <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input matInput type="email" formControlName="email" placeholder="your.email@example.com" required>
+                @if (contactForm.get('email')?.hasError('required')) {
+                  <mat-error>Email is required</mat-error>
+                }
+                @if (contactForm.get('email')?.hasError('email')) {
+                  <mat-error>Please enter a valid email</mat-error>
+                }
+              </mat-form-field>
+              
+              <mat-form-field appearance="outline">
+                <mat-label>Phone (Optional)</mat-label>
+                <input matInput type="tel" formControlName="phone" placeholder="(555) 123-4567">
+              </mat-form-field>
+              
+              <mat-form-field appearance="outline">
+                <mat-label>Subject</mat-label>
+                <input matInput formControlName="subject" placeholder="What can we help you with?" required>
+                @if (contactForm.get('subject')?.hasError('required')) {
+                  <mat-error>Subject is required</mat-error>
+                }
+              </mat-form-field>
+              
+              <mat-form-field appearance="outline">
+                <mat-label>Message</mat-label>
+                <textarea matInput formControlName="message" rows="6" 
+                  placeholder="Tell us more about your inquiry..." required></textarea>
+                @if (contactForm.get('message')?.hasError('required')) {
+                  <mat-error>Message is required</mat-error>
+                }
+              </mat-form-field>
+              
+              <button mat-raised-button color="primary" type="submit" 
+                [disabled]="contactForm.invalid || isSubmitting()" class="submit-button">
+                @if (isSubmitting()) {
+                  <mat-spinner diameter="20"></mat-spinner>
+                }
+                @if (!isSubmitting()) {
+                  <span>Send Message</span>
+                }
+              </button>
+            </form>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      
+      <!-- Contact Info -->
+      <div class="info-section">
+        <mat-card class="info-card">
+          <h3>Contact Information</h3>
+          
+          <div class="info-item">
+            <mat-icon>email</mat-icon>
+            <div>
+              <h4>Email</h4>
+              <a href="mailto:jolene.cantoria@stjo.farm">jolene.cantoria@stjo.farm</a>
+            </div>
+          </div>
+          
+          <div class="info-item">
+            <mat-icon>language</mat-icon>
+            <div>
+              <h4>Website</h4>
+              <a href="https://stjo.farm" target="_blank">stjo.farm</a>
+            </div>
+          </div>
+          
+          <div class="info-item">
+            <mat-icon>schedule</mat-icon>
+            <div>
+              <h4>Response Time</h4>
+              <p>We typically respond within 24-48 hours</p>
+            </div>
+          </div>
+        </mat-card>
+        
+        <mat-card class="info-card visit-card">
+          <mat-icon class="card-icon">agriculture</mat-icon>
+          <h3>Visit Our Farm</h3>
+          <p>
+            Interested in visiting StJo Farm? We welcome visitors by appointment. 
+            Please contact us to schedule a visit.
+          </p>
+          <button mat-raised-button color="accent">
+            <mat-icon>event</mat-icon>
+            Schedule a Visit
+          </button>
+        </mat-card>
+        
+        <mat-card class="info-card quick-links-card">
+          <h3>Quick Links</h3>
+          <div class="quick-links">
+            <a routerLink="/for-sale" mat-stroked-button>
+              <mat-icon>storefront</mat-icon>
+              Browse For Sale
+            </a>
+            <a routerLink="/animals" mat-stroked-button>
+              <mat-icon>pets</mat-icon>
+              Our Animals
+            </a>
+            <a routerLink="/calf-adoption" mat-stroked-button>
+              <mat-icon>favorite</mat-icon>
+              Calf Adoption
+            </a>
+          </div>
+        </mat-card>
+      </div>
+      
+    </div>
+  </div>
+</section>

@@ -1,0 +1,416 @@
+/* Page Hero */
+.page-hero {
+  position: relative;
+  height: 400px;
+  background: linear-gradient(135deg, var(--color-badass-dark) 0%, var(--color-badass) 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.2);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: var(--color-text-primary);
+
+    .hero-icon {
+      font-size: 80px;
+      width: 80px;
+      height: 80px;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    p {
+      font-size: 1.5rem;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    }
+  }
+}
+
+/* Program Info */
+.program-info {
+  padding: 80px 0;
+  background-color: var(--color-white);
+
+  .info-content {
+    max-width: 1000px;
+    margin: 0 auto;
+
+    h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      color: var(--color-orange);
+      margin-bottom: 2rem;
+    }
+
+    > p {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      color: var(--color-text-secondary);
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 3rem;
+    }
+
+    .info-box {
+      text-align: center;
+      padding: 2rem;
+      background-color: var(--color-off-white);
+      border-radius: 12px;
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: translateY(-5px);
+      }
+
+      mat-icon {
+        font-size: 56px;
+        width: 56px;
+        height: 56px;
+        color: var(--color-orange);
+        margin-bottom: 1rem;
+      }
+
+      h3 {
+        font-size: 1.3rem;
+        color: var(--color-blue);
+        margin-bottom: 0.5rem;
+      }
+
+      p {
+        color: var(--color-text-secondary);
+        line-height: 1.6;
+        margin: 0;
+      }
+    }
+  }
+}
+
+/* Process Section */
+.process-section {
+  padding: 80px 0;
+  background-color: var(--color-off-white);
+
+  h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--color-blue);
+    margin-bottom: 3rem;
+  }
+
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .step-card {
+    background: var(--color-white);
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+
+    .step-number {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--color-badass) 0%, var(--color-badass-dark) 100%);
+      color: var(--color-text-primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      font-weight: 700;
+      margin: 0 auto 1.5rem;
+    }
+
+    h3 {
+      font-size: 1.4rem;
+      color: var(--color-orange);
+      margin-bottom: 0.75rem;
+    }
+
+    p {
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+      margin: 0;
+    }
+  }
+}
+
+/* Adoption Form Section */
+.adoption-form-section {
+  padding: 80px 0;
+  background-color: var(--color-white);
+
+  .form-wrapper {
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    background: var(--color-off-white);
+    padding: 3rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+
+    h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      color: var(--color-orange);
+      margin-bottom: 1rem;
+    }
+
+    .form-intro {
+      text-align: center;
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--color-text-secondary);
+      margin-bottom: 2rem;
+    }
+  }
+
+  .adoption-form {
+    background: var(--color-white);
+    padding: 2rem;
+    border-radius: 8px;
+
+    h3 {
+      color: var(--color-blue);
+      font-size: 1.5rem;
+      margin: 2rem 0 1rem 0;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--color-border);
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+
+    mat-form-field {
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+
+    .file-upload-section {
+      margin: 2rem 0;
+
+      h3 {
+        margin-top: 0;
+      }
+
+      .file-upload-label {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        padding: 2rem;
+        background-color: var(--color-off-white);
+        border: 2px dashed var(--color-border);
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        &:hover {
+          background-color: var(--color-badass-light);
+          border-color: var(--color-badass);
+        }
+
+        mat-icon {
+          font-size: 48px;
+          width: 48px;
+          height: 48px;
+          color: var(--color-blue);
+        }
+      }
+
+      .image-preview {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        gap: 15px;
+        margin-top: 1.5rem;
+
+        .preview-item {
+          position: relative;
+          aspect-ratio: 1;
+
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 2px solid var(--color-border);
+          }
+
+          .remove-btn {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: var(--color-error);
+            color: var(--color-white);
+            width: 28px;
+            height: 28px;
+
+            mat-icon {
+              font-size: 18px;
+              width: 18px;
+              height: 18px;
+            }
+          }
+        }
+      }
+    }
+
+    .form-actions {
+      display: flex;
+      justify-content: center;
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 2px solid var(--color-border);
+
+      button {
+        min-width: 250px;
+        padding: 14px 28px;
+        font-size: 1.1rem;
+
+        mat-spinner {
+          display: inline-block;
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+
+  .success-message {
+    text-align: center;
+    padding: 3rem;
+    background: linear-gradient(135deg, var(--color-success) 0%, #1e7e34 100%);
+    color: var(--color-white);
+    border-radius: 8px;
+
+    mat-icon {
+      font-size: 80px;
+      width: 80px;
+      height: 80px;
+      margin-bottom: 1.5rem;
+    }
+
+    h3 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      line-height: 1.6;
+
+      strong {
+        font-weight: 700;
+      }
+    }
+
+    button {
+      margin-top: 1.5rem;
+    }
+  }
+
+  .contact-alternative {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--color-off-white);
+    border-radius: 12px;
+
+    mat-icon {
+      font-size: 64px;
+      width: 64px;
+      height: 64px;
+      color: var(--color-blue);
+      margin-bottom: 1rem;
+    }
+
+    h3 {
+      font-size: 1.8rem;
+      color: var(--color-orange);
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: var(--color-text-secondary);
+      margin-bottom: 1.5rem;
+    }
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .page-hero {
+    height: 300px;
+
+    .hero-content {
+      .hero-icon {
+        font-size: 60px;
+        width: 60px;
+        height: 60px;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      p {
+        font-size: 1.2rem;
+      }
+    }
+  }
+
+  .program-info,
+  .process-section,
+  .adoption-form-section {
+    padding: 60px 0;
+  }
+
+  h2 {
+    font-size: 2rem !important;
+  }
+
+  .info-grid,
+  .steps-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-wrapper {
+    padding: 2rem 1.5rem;
+  }
+
+  .adoption-form {
+    padding: 1.5rem;
+  }
+}

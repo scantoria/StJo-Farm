@@ -1,0 +1,50 @@
+rules_version = '2';
+
+service firebase.storage {
+  match /b/{bucket}/o {
+
+    // Helper functions
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isAdmin() {
+      return isSignedIn() && request.auth.token.email == 'stephen.cantoria@stjo.farm';
+    }
+
+    function isImage() {
+      return request.resource.contentType.matches('image/.*');
+    }
+
+    function isValidSize() {
+      // Max file size: 10MB
+      return request.resource.size < 10 * 1024 * 1024;
+    }
+
+    // Listing images - admins only can upload
+    match /listings/{allPaths=**} {
+      allow read: if true;
+      allow write: if isAdmin() && isImage() && isValidSize();
+      allow delete: if isAdmin();
+    }
+
+    // Contact message attachments - anyone can upload
+    match /contact/{allPaths=**} {
+      allow read: if true;
+      allow create: if isImage() && isValidSize();
+      allow update, delete: if isAdmin();
+    }
+
+    // Adoption request photos - anyone can upload
+    match /adoptions/{allPaths=**} {
+      allow read: if true;
+      allow create: if isImage() && isValidSize();
+      allow update, delete: if isAdmin();
+    }
+
+    // Deny access to everything else
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}

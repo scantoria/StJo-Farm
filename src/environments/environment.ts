@@ -1,12 +1,13 @@
 export const environment = {
   production: true,
   firebase: {
-    apiKey: "YOUR_API_KEY",
+    apiKey: "AIzaSyBcNrK7r-VAk_qWJ31vQMEUpdl2fx96WXs",
     authDomain: "stjo-farm.firebaseapp.com",
     projectId: "stjo-farm",
-    storageBucket: "stjo-farm.appspot.com",
-    messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-    appId: "YOUR_APP_ID"
+    storageBucket: "stjo-farm.firebasestorage.app",
+    messagingSenderId: "214332715937",
+    appId: "1:214332715937:web:36e354ef6bcbb8f7c351e0",
+    measurementId: "G-5SJNE96VYY"
   },
   adminEmail: "stephen.cantoria@stjo.farm"
 };

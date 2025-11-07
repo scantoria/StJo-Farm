@@ -1,1 +1,122 @@
-<p>listing-form works!</p>
+<h2 mat-dialog-title>{{ mode === 'add' ? 'Add New Listing' : 'Edit Listing' }}</h2>
+
+<mat-dialog-content>
+  <form [formGroup]="listingForm" class="listing-form">
+    
+    <mat-form-field appearance="outline">
+      <mat-label>Title</mat-label>
+      <input matInput formControlName="title" placeholder="e.g., Beautiful Holstein Heifer" required>
+      @if (listingForm.get('title')?.hasError('required')) {
+        <mat-error>Title is required</mat-error>
+      }
+    </mat-form-field>
+    
+    <mat-form-field appearance="outline">
+      <mat-label>Category</mat-label>
+      <mat-select formControlName="category" required>
+        <mat-option value="dairy-cow">Dairy Cow</mat-option>
+        <mat-option value="heifer">Heifer</mat-option>
+        <mat-option value="steer">Steer</mat-option>
+        <mat-option value="goat-wether">Wether Goat</mat-option>
+        <mat-option value="goat-doe">Doe Goat</mat-option>
+        <mat-option value="horse">Horse</mat-option>
+        <mat-option value="eggs">Eggs</mat-option>
+        <mat-option value="other">Other</mat-option>
+      </mat-select>
+      @if (listingForm.get('category')?.hasError('required')) {
+        <mat-error>Category is required</mat-error>
+      }
+    </mat-form-field>
+    
+    <mat-form-field appearance="outline">
+      <mat-label>Description</mat-label>
+      <textarea matInput formControlName="description" rows="6" 
+        placeholder="Provide detailed information about the item..." required></textarea>
+      @if (listingForm.get('description')?.hasError('required')) {
+        <mat-error>Description is required</mat-error>
+      }
+    </mat-form-field>
+    
+    <mat-form-field appearance="outline">
+      <mat-label>Price ($)</mat-label>
+      <input matInput type="number" formControlName="price" placeholder="0.00" required min="0" step="0.01">
+      <span matPrefix>$&nbsp;</span>
+      @if (listingForm.get('price')?.hasError('required')) {
+        <mat-error>Price is required</mat-error>
+      }
+      @if (listingForm.get('price')?.hasError('min')) {
+        <mat-error>Price must be 0 or greater</mat-error>
+      }
+    </mat-form-field>
+    
+    <div class="availability-field">
+      <mat-slide-toggle formControlName="available" color="primary">
+        Available for Sale
+      </mat-slide-toggle>
+    </div>
+    
+    <!-- Existing Images (Edit Mode) -->
+    @if (mode === 'edit' && existingImageUrls().length > 0) {
+      <div class="existing-images">
+        <h3>Current Images</h3>
+        <div class="image-grid">
+          @for (url of existingImageUrls(); track url; let i = $index) {
+            <div class="image-item">
+              <img [src]="url" alt="Listing image">
+              <button type="button" mat-icon-button color="warn" class="remove-btn" 
+                (click)="removeExistingImage(i)" title="Remove image">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </div>
+          }
+        </div>
+      </div>
+    }
+    
+    <!-- New Images Upload -->
+    <div class="image-upload-section">
+      <h3>{{ mode === 'add' ? 'Add Images' : 'Add More Images' }}</h3>
+      <label class="file-upload-label">
+        <mat-icon>add_photo_alternate</mat-icon>
+        <span>Click to select images</span>
+        <input type="file" multiple accept="image/*" (change)="onFilesSelected($event)" style="display: none;">
+      </label>
+      
+      @if (newImageFiles().length > 0) {
+        <div class="new-images-preview">
+          <h4>New Images to Upload:</h4>
+          <div class="image-grid">
+            @for (file of newImageFiles(); track file.name; let i = $index) {
+              <div class="image-item">
+                <img [src]="getImagePreview(file)" alt="Preview">
+                <button type="button" mat-icon-button color="warn" class="remove-btn" 
+                  (click)="removeNewImage(i)" title="Remove image">
+                  <mat-icon>close</mat-icon>
+                </button>
+              </div>
+            }
+          </div>
+        </div>
+      }
+    </div>
+    
+    <div class="form-info">
+      <mat-icon>info</mat-icon>
+      <p>You can upload multiple images. The first image will be used as the main thumbnail.</p>
+    </div>
+    
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="onCancel()" [disabled]="isSubmitting()">Cancel</button>
+  <button mat-raised-button color="primary" (click)="onSubmit()" 
+    [disabled]="listingForm.invalid || isSubmitting() || !hasImages()">
+    @if (isSubmitting()) {
+      <mat-spinner diameter="20"></mat-spinner>
+    }
+    @if (!isSubmitting()) {
+      <span>{{ mode === 'add' ? 'Create Listing' : 'Update Listing' }}</span>
+    }
+  </button>
+</mat-dialog-actions>

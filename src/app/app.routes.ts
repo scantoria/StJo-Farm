@@ -1,31 +1,31 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './pages/home/home.component';
-import { AboutComponent } from './pages/about/about.component';
-import { AnimalsComponent } from './pages/animals/animals.component';
-import { ForSaleComponent } from './pages/for-sale/for-sale.component';
-import { CalfAdoptionComponent } from './pages/calf-adoption/calf-adoption.component';
-import { ContactComponent } from './pages/contact/contact.component';
-import { AdminComponent } from './pages/admin/admin.component';
-import { LoginComponent } from './pages/admin/login/login.component';
-import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
-import { authGuard } from './core/guards/auth.guard';
+import { Home } from './pages/home/home';
+import { About } from './pages/about/about';
+import { Animals } from './pages/animals/animals';
+import { ForSale } from './pages/for-sale/for-sale';
+import { CalfAdoption } from './pages/calf-adoption/calf-adoption';
+import { Contact } from './pages/contact/contact';
+import { Admin } from './pages/admin/admin';
+import { Login } from './pages/admin/login/login';
+import { Dashboard } from './pages/admin/dashboard/dashboard';
+import { authGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'about', component: AboutComponent },
-  { path: 'animals', component: AnimalsComponent },
-  { path: 'for-sale', component: ForSaleComponent },
-  { path: 'calf-adoption', component: CalfAdoptionComponent },
-  { path: 'contact', component: ContactComponent },
-  { 
-    path: 'admin', 
-    component: AdminComponent,
+  { path: '', component: Home },
+  { path: 'about', component: About },
+  { path: 'animals', component: Animals },
+  { path: 'for-sale', component: ForSale },
+  { path: 'calf-adoption', component: CalfAdoption },
+  { path: 'contact', component: Contact },
+  {
+    path: 'admin',
+    component: Admin,
     children: [
       { path: '', redirectTo: 'login', pathMatch: 'full' },
-      { path: 'login', component: LoginComponent },
-      { 
-        path: 'dashboard', 
-        component: DashboardComponent,
+      { path: 'login', component: Login },
+      {
+        path: 'dashboard',
+        component: Dashboard,
         canActivate: [authGuard]
       }
     ]
