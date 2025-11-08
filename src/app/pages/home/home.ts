@@ -39,7 +39,7 @@ export class Home implements OnInit {
     {
       icon: 'water_drop',
       title: 'Fresh Dairy',
-      description: 'Quality milk from our show dairy cows, shared with our community'
+      description: 'Quality milk from our show dairy cows for family use and feeding our young animals'
     },
     {
       icon: 'pets',

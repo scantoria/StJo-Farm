@@ -81,8 +81,8 @@ export class About {
       icon: 'water_drop',
       name: 'Dairy Cows',
       type: 'Permanent Residents',
-      description: 'Our show dairy cows are the heart of the farm. They provide quality milk and are treated as family members.',
-      features: ['Fresh Milk', 'Show Quality', 'Well Cared For']
+      description: 'Our show dairy cows are the heart of the farm. They provide quality milk for family use and feeding our young animals.',
+      features: ['Family Milk', 'Show Quality', 'Well Cared For']
     },
     {
       icon: 'pets',
@@ -117,7 +117,7 @@ export class About {
   stats: Stat[] = [
     { number: '5.8', label: 'Acres' },
     { number: '100%', label: 'Family Owned' },
-    { number: 'Daily', label: 'Fresh Milk' },
+    { number: 'Daily', label: 'Family Milk' },
     { number: '5+', label: 'Animal Types' }
   ];
 
