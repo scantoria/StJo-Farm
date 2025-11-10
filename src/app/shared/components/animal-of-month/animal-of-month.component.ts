@@ -1,14 +1,7 @@
 import { Component, input, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
-
-export interface AnimalOfMonth {
-  name: string;
-  imageUrl: string;
-  description: string;
-  month: string;
-  year: number;
-}
+import { AnimalOfMonth } from '../../../core/models/animal-of-month.model';
 
 @Component({
   selector: 'app-animal-of-month',

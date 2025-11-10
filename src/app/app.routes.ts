@@ -8,6 +8,7 @@ import { Contact } from './pages/contact/contact';
 import { Admin } from './pages/admin/admin';
 import { Login } from './pages/admin/login/login';
 import { Dashboard } from './pages/admin/dashboard/dashboard';
+import { AnimalOfMonthAdmin } from './pages/admin/animal-of-month/animal-of-month-admin';
 import { authGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
@@ -26,6 +27,11 @@ export const routes: Routes = [
       {
         path: 'dashboard',
         component: Dashboard,
+        canActivate: [authGuard]
+      },
+      {
+        path: 'animal-of-month',
+        component: AnimalOfMonthAdmin,
         canActivate: [authGuard]
       }
     ]

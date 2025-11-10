@@ -42,6 +42,13 @@ service firebase.storage {
       allow update, delete: if isAdmin();
     }
 
+    // Animal of the Month images - admins only
+    match /animals-of-month/{allPaths=**} {
+      allow read: if true;
+      allow write: if isAdmin() && isImage() && isValidSize();
+      allow delete: if isAdmin();
+    }
+
     // Deny access to everything else
     match /{allPaths=**} {
       allow read, write: if false;
