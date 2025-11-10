@@ -5,6 +5,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ListingCardComponent } from '../../shared/components/listing-card/listing-card.component';
+import { AnimalOfMonthComponent, AnimalOfMonth } from '../../shared/components/animal-of-month/animal-of-month.component';
 import { ListingService } from '../../core/services/listing.service';
 import { Listing } from '../../core/models/listing.model';
 
@@ -22,7 +23,8 @@ interface Offering {
     MatButtonModule,
     MatIconModule,
     MatProgressSpinnerModule,
-    ListingCardComponent
+    ListingCardComponent,
+    AnimalOfMonthComponent
   ],
   templateUrl: './home.html',
   styleUrl: './home.scss',
@@ -33,7 +35,14 @@ export class Home implements OnInit {
 
   featuredListings = signal<Listing[]>([]);
   loading = signal(false);
-  farmImageExists = signal(false); // Set to true when you add farm image
+  farmImageExists = signal(true);
+  animalOfMonth = signal<AnimalOfMonth | null>({
+    name: 'Millie',
+    imageUrl: 'dairy-cow-millie-2.jpg',
+    description: 'Meet Millie, our beloved Jersey dairy cow! Millie is a show-quality dairy cow who has been with us for several years. She\'s known for her gentle temperament and excellent milk production. Millie loves attention and is always happy to greet visitors at the fence. Her rich, creamy milk is a staple for our family and helps nourish our young animals.',
+    month: 'November',
+    year: 2025
+  });
 
   offerings: Offering[] = [
     {
@@ -42,7 +51,7 @@ export class Home implements OnInit {
       description: 'Quality milk from our show dairy cows for family use and feeding our young animals'
     },
     {
-      icon: 'pets',
+      icon: 'agriculture',
       title: 'Livestock',
       description: 'Dairy cows, heifers, steers, and quality goats for sale'
     },

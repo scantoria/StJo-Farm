@@ -52,6 +52,16 @@
   </div>
 </section>
 
+<!-- Animal of the Month -->
+<section class="animal-of-month">
+  <div class="container">
+    <h2 class="section-title">Animal of the Month</h2>
+    @if (animalOfMonth()) {
+      <app-animal-of-month [animal]="animalOfMonth()!" />
+    }
+  </div>
+</section>
+
 <!-- What We Offer -->
 <section class="offerings">
   <div class="container">
@@ -112,7 +122,7 @@
 <section class="calf-adoption-cta">
   <div class="container">
     <div class="cta-content">
-      <mat-icon class="cta-icon">pets</mat-icon>
+      <div class="cta-icon">🐮</div>
       <h2>Need to Rehome a Calf?</h2>
       <p>
         We understand that sometimes circumstances change. If you have a calf that

@@ -14,7 +14,7 @@ import { MatButtonModule } from '@angular/material/button';
 })
 export class HeaderComponent {
   mobileMenuOpen = signal(false);
-  logoExists = signal(false); // Set to true when you add logo
+  logoExists = signal(true);
 
   toggleMobileMenu(): void {
     this.mobileMenuOpen.update(value => !value);

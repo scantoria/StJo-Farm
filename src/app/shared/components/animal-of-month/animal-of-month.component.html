@@ -1,0 +1,13 @@
+<div class="animal-of-month-container">
+  <div class="animal-image">
+    <img [src]="animal().imageUrl" [alt]="animal().name" />
+    <div class="month-badge">
+      <span class="month">{{ animal().month }}</span>
+      <span class="year">{{ animal().year }}</span>
+    </div>
+  </div>
+  <div class="animal-details">
+    <h3 class="animal-name">{{ animal().name }}</h3>
+    <p class="animal-description">{{ animal().description }}</p>
+  </div>
+</div>

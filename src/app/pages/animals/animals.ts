@@ -12,10 +12,9 @@ import { MatButtonModule } from '@angular/material/button';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class Animals {
-  // Set these to true when you add actual images
-  dairyCowsImageExists = signal(false);
-  calvesImageExists = signal(false);
-  goatsImageExists = signal(false);
-  horsesImageExists = signal(false);
-  chickensImageExists = signal(false);
+  dairyCowsImageExists = signal(true);
+  calvesImageExists = signal(true);
+  goatsImageExists = signal(true);
+  horsesImageExists = signal(true);
+  chickensImageExists = signal(true);
 }

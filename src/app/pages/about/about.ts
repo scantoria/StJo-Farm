@@ -47,7 +47,7 @@ interface Practice {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class About {
-  farmImageExists = signal(false); // Set to true when you add images
+  farmImageExists = signal(true);
 
   values: Value[] = [
     {
@@ -85,7 +85,7 @@ export class About {
       features: ['Family Milk', 'Show Quality', 'Well Cared For']
     },
     {
-      icon: 'pets',
+      icon: 'agriculture',
       name: 'Calves',
       type: 'Rotating Stock',
       description: 'We receive calves throughout the year. Heifers and steers are raised with care before sale.',

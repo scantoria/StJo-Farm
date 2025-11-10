@@ -1,5 +1,5 @@
 .header-toolbar {
-  background: linear-gradient(135deg, var(--color-orange) 0%, var(--color-orange-dark) 100%);
+  background: linear-gradient(135deg, var(--color-blue) 0%, var(--color-blue-dark) 100%);
   color: var(--color-white);
   position: sticky;
   top: 0;
@@ -94,7 +94,7 @@
       }
 
       &.active {
-        background-color: var(--color-orange);
+        background-color: var(--color-blue);
         color: var(--color-white);
       }
     }
