@@ -5,6 +5,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { PageBannerComponent } from '../../shared/components/page-banner/page-banner.component';
 
 interface Value {
   icon: string;
@@ -40,7 +41,8 @@ interface Practice {
     MatCardModule,
     MatChipsModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    PageBannerComponent
   ],
   templateUrl: './about.html',
   styleUrl: './about.scss',

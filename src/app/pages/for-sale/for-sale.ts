@@ -8,6 +8,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ListingCardComponent } from '../../shared/components/listing-card/listing-card.component';
+import { PageBannerComponent } from '../../shared/components/page-banner/page-banner.component';
 import { ListingService } from '../../core/services/listing.service';
 import { Listing } from '../../core/models/listing.model';
 
@@ -22,7 +23,8 @@ import { Listing } from '../../core/models/listing.model';
     MatButtonModule,
     MatIconModule,
     MatProgressSpinnerModule,
-    ListingCardComponent
+    ListingCardComponent,
+    PageBannerComponent
   ],
   templateUrl: './for-sale.html',
   styleUrl: './for-sale.scss',

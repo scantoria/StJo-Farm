@@ -3,10 +3,11 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { PageBannerComponent } from '../../shared/components/page-banner/page-banner.component';
 
 @Component({
   selector: 'app-animals',
-  imports: [CommonModule, RouterModule, MatIconModule, MatButtonModule],
+  imports: [CommonModule, RouterModule, MatIconModule, MatButtonModule, PageBannerComponent],
   templateUrl: './animals.html',
   styleUrl: './animals.scss',
   changeDetection: ChangeDetectionStrategy.OnPush

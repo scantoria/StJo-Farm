@@ -11,6 +11,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ContactService } from '../../core/services/contact.service';
 import { EmailService } from '../../core/services/email.service';
+import { PageBannerComponent } from '../../shared/components/page-banner/page-banner.component';
 import { ContactMessage } from '../../core/models/listing.model';
 
 @Component({
@@ -25,7 +26,8 @@ import { ContactMessage } from '../../core/models/listing.model';
     MatButtonModule,
     MatIconModule,
     MatProgressSpinnerModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    PageBannerComponent
   ],
   templateUrl: './contact.html',
   styleUrl: './contact.scss',

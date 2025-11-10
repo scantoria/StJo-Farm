@@ -1,0 +1,12 @@
+<section class="page-banner">
+  <div class="banner-overlay"></div>
+  <div class="banner-content">
+    @if (icon()) {
+      <mat-icon class="banner-icon">{{ icon() }}</mat-icon>
+    }
+    <h1>{{ title() }}</h1>
+    @if (subtitle()) {
+      <p>{{ subtitle() }}</p>
+    }
+  </div>
+</section>
