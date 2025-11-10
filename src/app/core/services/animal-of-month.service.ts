@@ -87,7 +87,7 @@ export class AnimalOfMonthService {
     const animalDoc = doc(this.firestore, this.collectionName, id);
     const now = Timestamp.now();
 
-    const updateData = {
+    const updateData: Record<string, any> = {
       ...animal,
       updatedAt: now
     };
